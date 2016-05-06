@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Thymeleaf tutorial: exercise 12,13</title>
+        <link rel="stylesheet" href="../../../css/main-static.css" th:href="@{/css/main.css}" />
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <form action="#" method="get" th:action="@{/condition}" th:object="${product}">
+        <label for="productName">Product name:</label>
+        <input type="text" value="default" th:field="*{name}" />
+        
+        <label for="productPrice">Product price:</label>
+        <input type="text" value="default" th:field="*{price}" />
+        
+        <label for="productPublish">Product publish:</label>
+        <input type="text" value="default" th:field="*{publishDate}" />
+        
+        <label for="productType">Product type:</label>
+        <select th:field="*{type}" th:remove="all-but-first">
+            <option th:each="type : ${typeList}"
+                    th:value="${type}" th:text="${type}">default</option>
+            <option>M</option>
+            <option>N</option>
+        </select>
+        
+        <label for="note">Note:</label>
+        <textarea th:inline="text">
+    product info:
+
+        product name: [[*{name}]]
+		
+        product price: [[*{price}]]
+		
+        product type: [[*{type}]]
+        </textarea>
+        <input type="submit" />
+        </form>
+    </body>
+</html>

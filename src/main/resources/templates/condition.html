@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Thymeleaf tutorial: exercise 8,9</title>
+        <link rel="stylesheet" href="../../../css/main-static.css" th:href="@{/css/main.css}" />
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>Thymeleaf tutorial - Answer for exercise 8，9: condition</h1>
+        <h2>Product list</h2>
+        <span th:if="${productList.size() eq 0}">data empty!</span>
+        <table th:if="${productList.size() gt 0}">
+        <thead>
+        <tr>
+        <th>序号</th>
+        <th>产品名称</th>
+        <th>产品价格</th>
+        <th>产品发布日期</th>
+        <th>类型</th>
+        </tr>
+        </thead>
+        <tbody th:remove="all-but-first">
+        <tr th:each="product : ${productList}">
+        <td th:text="${productStat.count}">default index</td>
+        <td th:text="${product.name}">default product name</td>
+        <td th:text="${product.price}">default product price</td>
+        <td th:text="${product.publishDate}">default product publish date</td>
+        <td th:switch="${product.type}">
+            <span th:case="'A'">类型A</span>
+            <span th:case="'B'">类型B</span>
+            <span th:case="*">其他类型</span>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+    </body>
+</html>

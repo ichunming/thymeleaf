@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Thymeleaf tutorial: exercise 5,6,7,8</title>
+        <link rel="stylesheet" href="../../../css/main-static.css" th:href="@{/css/main.css}" />
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>Thymeleaf tutorial - Answer for exercise 5,6,7,8: escaped, iteration</h1>
+        <h2>Product list</h2>
+        <table>
+        <thead>
+        <tr>
+        <th>序号</th>
+        <th>产品名称</th>
+        <th>产品价格</th>
+        <th>产品发布日期</th>
+        <th></th>
+        </tr>
+        </thead>
+        <tbody th:remove="all-but-first">
+        <tr th:each="product : ${productList}">
+        <td th:text="${productStat.count}">default index</td>
+        <td th:text="${product.name}">default product name</td>
+        <td th:text="${product.price}">default product price</td>
+        <td th:text="${product.publishDate}">default product publish date</td>
+        <td>
+        <span th:if="${product.price lt 200}" class="offer">Special offer!</span>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        <br />
+        <div th:text="${html}">
+        Some escaped text
+        </div>
+        <div th:utext="${html}">
+        Some unescaped text
+        </div>
+    </body>
+</html>
