@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Thymeleaf tutorial: exercise 14,15</title>
+        <link rel="stylesheet" href="../../../css/main-static.css" th:href="@{/css/main.css}" />
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>Thymeleaf tutorial - Answer for exercise 14,15: template</h1>
+        <div th:fragment="banner" id="bannerElement" th:remove="all">
+            <div class="banner">
+                <span>Template Banner</span>
+            </div>
+        </div>
+        
+        <div th:fragment="Tbanner(color, text)" th:remove="all">
+            <div class="banner " th:attrappend="class=${color}">
+                <span th:text="${text}">Template Banner with parameter</span>
+            </div>
+        </div>
+        ------------分割线-------------
+        <div th:include="this :: banner">Banner</div>
+        
+        <div th:include="this :: Tbanner('white', 'template with param(white)')">white template</div>
+        <div th:include="this :: Tbanner('red', 'template with param(red)')">red template</div>
+
+    </body>
+</html>

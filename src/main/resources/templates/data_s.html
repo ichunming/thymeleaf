@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Thymeleaf tutorial: exercise 18</title>
+        <link rel="stylesheet" href="../../../css/main-static.css" th:href="@{/css/main.css}" />
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>Thymeleaf tutorial - Answer for exercise 18: data-* syntax</h1>
+        <h2>Product information</h2>
+        <dl>
+        <dt>product name</dt>
+        <dd data-th-text="${product.name}">default product name</dd>
+        <dt>product price</dt>
+        <dd data-th-text="${product.price}">default product price</dd>
+        <dt>product publish date</dt>
+        <dd data-th-text="${product.publishDate}">default publish date</dd>
+        </dl>
+    </body>
+</html>

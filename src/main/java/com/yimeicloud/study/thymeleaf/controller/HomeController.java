@@ -96,4 +96,20 @@ public class HomeController {
 		
 		return "forms";
 	}
+	
+	@RequestMapping("template")
+	public String template(Model model) {
+		// template
+		
+		return "template";
+	}
+	
+	@RequestMapping("data_s")
+	public String data_s(Model model) {
+		// data-*
+		
+		model.addAttribute("product", product);
+		
+		return "data_s";
+	}
 }
